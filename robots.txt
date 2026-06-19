@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://leonzhao9stan.github.io/web-bjlpoker-com-2/sitemap.xml

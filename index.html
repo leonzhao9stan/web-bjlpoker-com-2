@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>百家乐 · 查询参考 | web-bjlpoker.com</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f8fa;
+            color: #1b2b3a;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px 10px;
+            padding: 12px 0 18px;
+            border-bottom: 1px solid #d0e2ed;
+            margin-bottom: 32px;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #146b6b;
+            letter-spacing: 0.02em;
+        }
+
+        .nav a {
+            color: #146b6b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: #098c8c;
+            text-decoration: underline;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        /* hero 区域 */
+        .hero {
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #0b2a2a;
+            letter-spacing: -0.01em;
+            max-width: 640px;
+        }
+
+        .hero .accent {
+            color: #1b8a8a;
+        }
+
+        .hero p {
+            margin-top: 12px;
+            font-size: 1.05rem;
+            color: #2c4a5a;
+            max-width: 640px;
+            background: #e6f2f2;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border-left: 4px solid #1b8a8a;
+        }
+
+        /* 场景卡片网格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 36px 0 40px;
+        }
+
+        @media (min-width: 600px) {
+            .scene-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .scene-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 20px 22px;
+            box-shadow: 0 6px 16px rgba(0, 40, 40, 0.06);
+            border: 1px solid #dce9ef;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(20, 90, 90, 0.08);
+            border-color: #88c2c2;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0a3d3d;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 span {
+            background: #cbe4e4;
+            color: #0a4a4a;
+            font-size: 0.75rem;
+            padding: 0 8px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2c4452;
+            margin-bottom: 8px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 4px;
+        }
+
+        .card li {
+            font-size: 0.9rem;
+            padding: 4px 0 4px 20px;
+            position: relative;
+            color: #1d4050;
+        }
+
+        .card li::before {
+            content: "•";
+            color: #1b8a8a;
+            font-weight: 700;
+            position: absolute;
+            left: 2px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #d5ecec;
+            color: #0a5252;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            margin-right: 6px;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-block {
+            background: #e7f0f2;
+            border-radius: 24px;
+            padding: 28px 24px 32px;
+            margin: 20px 0 32px;
+        }
+
+        .faq-block h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #083838;
+            margin-bottom: 8px;
+        }
+
+        .faq-block .sub {
+            color: #235a6a;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #c6dbdf;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b4141;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .faq-item p {
+            color: #2e5360;
+            font-size: 0.93rem;
+            max-width: 680px;
+        }
+
+        .faq-item .note {
+            color: #3f6f7a;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            background: #ffffffb8;
+            padding: 4px 12px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        /* 链接嵌入段落 */
+        .inline-link {
+            color: #117a7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #87b8b8;
+        }
+
+        .inline-link:hover {
+            color: #0a5f5f;
+            border-bottom-style: solid;
+        }
+
+        /* 其他 */
+        .extra-note {
+            background: #f0f7f7;
+            border-radius: 16px;
+            padding: 20px 22px;
+            margin: 20px 0;
+            border: 1px solid #cee3e3;
+        }
+
+        .extra-note p {
+            color: #1b4c4c;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #cddfe6;
+            margin: 28px 0 16px;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #547a82;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .footer-note a {
+            color: #146b6b;
+            text-decoration: none;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .nav {
+                padding-bottom: 14px;
+            }
+            .faq-block {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <span class="nav-logo">◈ 查询对照</span>
+        <div class="nav-links">
+            <a href="#scene">场景</a>
+            <a href="#faq">常见说明</a>
+            <a href="#">延伸</a>
+        </div>
+    </nav>
+
+    <!-- hero 简明切入 -->
+    <div class="hero">
+        <h1>日常查询 · 对照 · <span class="accent">百家乐</span> 参考</h1>
+        <p>从规则查阅到术语对照，再到不同场景下的延伸阅读——本页面向习惯先检索、再理解的使用者，提供一份精简但结构清晰的摘要。所有内容均基于 <a href="https://web-bjlpoker.com" class="inline-link">百家乐</a> 公开资料整理，适合快速定位信息。</p>
+    </div>
+
+    <!-- 三个场景模块 (网格卡片) -->
+    <h2 id="scene" style="font-weight:500; font-size:1.3rem; color:#0a4040; margin-bottom:6px;">📋 常见使用场景</h2>
+    <p style="color:#37636b; margin-bottom:18px; font-size:0.95rem;">根据检索习惯，划分三个典型模块：术语对照、规则速查、参考延伸</p>
+
+    <div class="scene-grid">
+
+        <div class="card">
+            <h3>🔍 术语 · 对照 <span>速查</span></h3>
+            <p>常用术语及对应含义，适合阅读文章或记录时快速对照：</p>
+            <ul>
+                <li><span class="tag">庄</span>  Banker / 庄家方</li>
+                <li><span class="tag">闲</span>  Player / 闲家方</li>
+                <li><span class="tag">和</span>  Tie / 和局</li>
+                <li><span class="tag">例牌</span>  自然牌 (8或9点)</li>
+                <li><span class="tag">补牌</span>  第三张牌规则</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>📖 规则速查 <span>要点</span></h3>
+            <p>标准 <a href="https://web-bjlpoker.com" class="inline-link">百家乐</a> 规则中，每局使用8副牌，点数计算以个位数为准。庄闲两方先发两张，依点数决定是否补牌。</p>
+            <ul>
+                <li>8或9点停牌（例牌）</li>
+                <li>闲家0-5补，6-7停</li>
+                <li>庄家补牌依闲家第三张而定</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>🧩 延伸阅读 <span>索引</span></h3>
+            <p>以下方向可供进阶对照或背景理解：</p>
+            <ul>
+                <li>不同地区规则微调</li>
+                <li>投注选项与赔率结构</li>
+                <li>路单与趋势记录方式</li>
+                <li>历史演变及文化背景</li>
+            </ul>
+            <p style="margin-top:10px; font-size:0.85rem; color:#2a6a6a;">更多细节可参考相关专题文章。</p>
+        </div>
+
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div id="faq" class="faq-block">
+        <h2>常见说明 · 简览</h2>
+        <p class="sub">针对日常查询中反复出现的问题，整理为短条目。</p>
+
+        <div class="faq-item">
+            <strong>牌点如何计算？</strong>
+            <p>牌面2-9按面值，10、J、Q、K计为0，A计为1。总和对10取余数，例如13计为3点。</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>「和」的出现概率？</strong>
+            <p>在标准牌靴下，和局的概率约为9.5%左右。赔率通常为8:1或9:1，具体依规则而定。</p>
+            <span class="note">注：不同赌场或平台可能微调</span>
+        </div>
+
+        <div class="faq-item">
+            <strong>有没有简单规则记忆口诀？</strong>
+            <p>闲家0-5补，6-7停；庄家复杂一些，可记「庄家0-2必补，3-6视闲三，7停」作为简化参考。</p>
+        </div>
+
+        <div class="faq-item">
+            <strong>路单怎么看？</strong>
+            <p>路单是记录每一局结果（庄/闲/和）的图表，常见有大路、大眼路、小路、甲由路等。主要用于观察趋势，不改变每局独立概率。</p>
+        </div>
+    </div>
+
+    <!-- 额外说明 / 索引提示 -->
+    <div class="extra-note">
+        <p>🔄 本页作为轻量导航，聚焦于日常查询、对照与延伸。若需要更完整的规则列表或历史沿革，可直接浏览 <a href="https://web-bjlpoker.com" class="inline-link">百家乐</a> 的主页面，其中包含分章节说明与常见变体对照。所有摘要均基于公开通用资料，不包含具体策略指导或保证。</p>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <span>内容参考 · 信息密度优先 &nbsp;|&nbsp; <a href="https://web-bjlpoker.com">百家乐</a> &nbsp;·&nbsp; 桌面 &amp; 移动端适配</span>
+    </div>
+
+</div>
+</body>
+</html>
